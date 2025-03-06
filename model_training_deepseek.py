@@ -17,9 +17,8 @@ MODEL_NAME = "deepseek-ai/deepseek-llm-1.5b"  # Using DeepSeek R1 Distill 1.5B p
 SEQUENCE_LENGTH = 10  # Number of time steps to consider for prediction
 PREDICTION_HORIZON = 1  # Number of time steps to predict ahead
 
-# Set device to CPU for stability
-# M1 GPU can be unstable with large language models
-DEVICE = torch.device("cpu")
+# Set device to GPU if available, otherwise use CPU
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 print(f"Using CPU for training for stability")
 
 # Custom dataset for time series
