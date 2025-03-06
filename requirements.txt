@@ -1,0 +1,9 @@
+pandas
+numpy
+scikit-learn
+requests
+pandas_ta
+ccxt
+transformers
+accelerate
+torch
